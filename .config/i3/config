@@ -1,0 +1,135 @@
+#  ____  __  ________________ _____ ___  ____ _
+# / __ \/ / / / ___/ ___/ __ `/ __ `__ \/ __ `/
+#/ /_/ / /_/ (__  |__  ) /_/ / / / / / / /_/ / 
+#\____/\__,_/____/____/\__,_/_/ /_/ /_/\__,_/  
+                 
+#  last  update: 28/10/19
+
+set $mod Mod4
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# > Pulseaudio
+
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+floating_modifier $mod
+
+# > Shortcuts i3
+
+bindsym $mod+Shift+q kill
+
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+m focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+M move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+q focus parent
+
+# > Workspaces
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+
+bindsym $mod+ampersand workspace number $ws1
+bindsym $mod+eacute workspace number $ws2
+bindsym $mod+quotedbl workspace number $ws3
+bindsym $mod+apostrophe workspace number $ws4
+
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+eacute move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+
+# > Troubleshoot i3 
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+
+# > Resizing
+
+mode "resize" {
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym m resize grow width 10 px or 10 ppt
+
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# > Customized shortcuts
+
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
+bindsym Print exec "flameshot gui"
+bindsym $mod+BackSpace exec "thunar"
+bindsym $mod+a exec "discord"
+bindsym $mod+z exec "firefox"
+bindsym $mod+p exec "sh ~/scripts/fa-menu -f ~/scripts/fa5-icon-list.txt"
+
+# > Scripts and exec
+
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+d exec "dmenu_run -nf '#FFFFFF' -nb '#4C7399' -sb '#F5E7DE' -sf '#000000' -fn 'Fixedsys Excelsior:pixelsize=16'"
+exec "feh --bg-fill /home/oussamaouanane/.config/wallpaper.jpg"
+exec_always --no-startup-id sh ~/.config/polybar/launch.sh
+exec_always --no-startup-id dunst
+exec_always --no-startup-id sh ~/scripts/xrandr 
+
+# > Title
+
+font pango:Fixedsys Excelsior 13
+for_window [class=".*"] title_format " > %title"
+for_window [class="(?i)urxvt"] title_format " > hop hop hop"
+for_window [class="(?i)firefox"] title_format " > fox"
+
+#                       border  bground text    indicator child_border
+client.focused          #F5E7DE #4C7399 #FFFFFF #F5E7DE   #F5E7DE
+client.focused_inactive #333333 #F5E7DE #000000 #484E50   #5F676A
+client.unfocused        #333333 #4C7399 #FFFFFF #F5E7DE   #222222
+client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+
