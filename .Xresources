@@ -1,6 +1,0 @@
-URxvt.perl-ext-common:      solarized
-URxvt.keysym.Mod4-c:        perl:solarized:toggle
-URxvt.solarized.default:    dark
-
-URxvt*font: xft:SourceCodePro Medium:size=13
-URxvt.scrollBar: false
