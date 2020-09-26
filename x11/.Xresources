@@ -1,43 +1,43 @@
 ! special
-*.foreground:   #565e65
-*.background:   #f3f4f5
-*.cursorColor:  #565e65
+*.foreground:   #c5c8c6
+*.background:   #141414
+*.cursorColor:  #c5c8c6
 
 ! black
-*.color0:       #1c2023
-*.color8:       #747c84
+*.color0:       #282a2e
+*.color8:       #373b41
 
 ! red
-*.color1:       #c7ae95
-*.color9:       #c7ae95
+*.color1:       #5659a6
+*.color9:       #32aedd
 
 ! green
-*.color2:       #95c7ae
-*.color10:      #95c7ae
+*.color2:       #b5bd68
+*.color10:      #b5bd68
 
 ! yellow
-*.color3:       #aec795
-*.color11:      #aec795
+*.color3:       #32aedd
+*.color11:      #dbc9e2
 
 ! blue
-*.color4:       #ae95c7
-*.color12:      #ae95c7
+*.color4:       #5f819d
+*.color12:      #81a2be
 
 ! magenta
-*.color5:       #c795ae
-*.color13:      #c795ae
+*.color5:       #60569c
+*.color13:      #b294bb
 
 ! cyan
-*.color6:       #95aec7
-*.color14:      #95aec7
+*.color6:       #5e8d87
+*.color14:      #8abeb7
 
 ! white
-*.color7:       #c7ccd1
-*.color15:      #f3f4f5
+*.color7:       #707880
+*.color15:      #c5c8c6
 
-! Rofi colors
 rofi.color-enabled:                  true
-rofi.color-normal:                   argb:00000000,  #65a37d, argb:00000000,  #82cf8b,  #65a37d
-rofi.color-window:                   argb:eeffffff,  #82cf8b,  #82cf8b
-URxvt*font: xft:FiraCode Nerd Font: style=Bold: size=12
+rofi.color-normal:                   #141414,  #dbc9e2, argb:00000000,  #252525,  #dbc9e2
+rofi.color-window:                   #141414,  #dbc9e2,  #dbc9e2
+
+URxvt*font: xft:FiraCode Nerd Font: size=16
 URxvt.scrollBar: false
