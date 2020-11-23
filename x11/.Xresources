@@ -1,6 +1,6 @@
 ! special
 *.foreground:   #c5c8c6
-*.background:   #141414
+*.background:   #001317
 *.cursorColor:  #c5c8c6
 
 ! black
@@ -36,8 +36,8 @@
 *.color15:      #c5c8c6
 
 rofi.color-enabled:                  true
-rofi.color-normal:                   #141414,  #dbc9e2, argb:00000000,  #252525,  #dbc9e2
-rofi.color-window:                   #141414,  #dbc9e2,  #dbc9e2
+rofi.color-normal:                   #061114,  #bd394e, argb:00000000,  #061114,  #bd394e
+rofi.color-window:                   #061114,  #bd394e,  #bd394e
 
-URxvt*font: xft:FiraCode Nerd Font: size=16
+URxvt*font: xft:FiraCode Nerd Font:style=Regular:pixelsize=22
 URxvt.scrollBar: false

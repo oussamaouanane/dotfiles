@@ -1,9 +1,9 @@
 [colors]
-background = #141414
-background-alt = #141414
+background = #061114
+background-alt = #061114
 foreground = #dfdfdf
 foreground-alt = #dfdfdf
-primary = #5659a6 
+primary = #bd394e 
 secondary = #e0ffe0
 alert = #bd2c40
 
@@ -25,15 +25,16 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Fixedsys Excelsior:size=15;2
-font-1 = FontAwesome5Free:style=Solid:pixelsize=12;2
-font-2 = FontAwesome5Brands:style=Solid:pixelsize=12;2
+font-0 = Fixedsys Excelsior:size=17;2
+font-1 = FiraCode Nerd Font:pixelsize=14;2
+;font-1 = Font Awesome 5 Free Regular:style=Solid:pixelsize=12;2
+;font-2 = Font Awesome 5 Brands Regular:style=Solid:pixelsize=12;2
 
 modules-left = i3
-modules-right = volume xkeyboard memory cpu battery temperature date
+modules-right = volume network cpu battery temperature date
 
-tray-position = right
-tray-padding = 2
+#tray-position = right
+#tray-padding = 2
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -46,7 +47,7 @@ label = %title:0:30:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = " "
+format-prefix = "? "
 format-prefix-foreground = ${colors.foreground-alt}
 
 label-layout = %layout%
@@ -108,30 +109,26 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = ""
 format-prefix-foreground = ${colors.foreground-alt}
 label = %percentage_used%%
 
-[module/wlan]
+[module/network]
 type = internal/network
-interface = wlp3s0
+interface = eno1
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
-label-connected = %essid%
+label-connected = %local_ip%
 
-format-disconnected =
+format-disconnected = Pas connecté
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+ramp-signal-0 = 歷 
 ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/date]
@@ -156,7 +153,7 @@ format-volume = <ramp-volume> <label-volume>
 label-volume = %percentage%
 label-volume-foreground = ${root.foreground}
 
-ramp-volume-0 = 
+ramp-volume-0 =  
 ramp-volume-1 = 
 ramp-volume-2 = 
 
@@ -167,7 +164,7 @@ format-volume = <label-volume> <bar-volume>
 label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted = 🔇 muted
+label-muted = ? muted
 label-muted-foreground = #666
 
 bar-volume-width = 10
@@ -181,9 +178,9 @@ bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
-bar-volume-fill = ─
+bar-volume-fill = ?
 bar-volume-fill-font = 2
-bar-volume-empty = ─
+bar-volume-empty = ?
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
@@ -194,7 +191,7 @@ format-volume = <label-volume> <bar-volume>
 label-volume = VOL
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = " "
+format-muted-prefix = "? "
 format-muted-foreground = ${colors.foreground-alt}
 label-muted = sound muted
 
@@ -209,9 +206,9 @@ bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
-bar-volume-fill = ─
+bar-volume-fill = ?
 bar-volume-fill-font = 2
-bar-volume-empty = ─
+bar-volume-empty = ?
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
@@ -222,19 +219,19 @@ adapter = AC
 full-at = 98
 
 format-charging = <label-charging>
-format-charging-prefix = " "
+format-charging-prefix = "? "
 label-charging = %percentage%
 
 format-discharging = <label-discharging>
 label-discharging = %percentage%
 
-ramp-capacity-0 = 
+ramp-capacity-0 = ?
 ramp-capacity-0-foreground = #FF0000
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-5 = 
+ramp-capacity-1 = ?
+ramp-capacity-2 = ?
+ramp-capacity-3 = ?
+ramp-capacity-4 = ?
+ramp-capacity-5 = ?
 
 ramp-capacity-foreground = ${colors.foreground-alt}
 
